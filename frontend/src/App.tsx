@@ -17,11 +17,15 @@ function App() {
     getStarships();
   }, []);
 
+  const handleUpdate = (newData: any) => {
+    setStarships(newData);
+  };
+
   return (
     <div className="app">
       <div className="content">
         <Header />
-        <ThreeViewer starships={starships} />
+        <ThreeViewer starships={starships} handleUpdate={handleUpdate} />
         <SideBar starShipData={starships} />
       </div>
     </div>
