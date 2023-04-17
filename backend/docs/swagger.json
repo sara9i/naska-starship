@@ -1,0 +1,57 @@
+{
+  "swagger": "2.0",
+  "host": "localhost:8000",
+  "basePath": "",
+  "schemes": [
+    "http"
+  ],
+  "info": {
+    "title": "Starship (16-04-2023)",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "stats",
+      "description": "get click stats of each starship"
+    },
+    {
+      "name": "click",
+      "description": "increment click stat of starship"
+    },
+    {
+      "name": "wing-starships",
+      "description": "get starships from swapi with name containing wing"
+    }
+  ],
+  "paths": {
+    "/wing-starships": {
+      "get": {
+        "tags": [
+          "wing-starships"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "description": "get starships from swapi with name containing wing",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Fetch Successfully."
+          },
+          "400": {
+            "description": "Invalid Input"
+          },
+          "404": {
+            "description": "API not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+   
+  }
+}
