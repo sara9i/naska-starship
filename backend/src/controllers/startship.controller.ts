@@ -9,6 +9,11 @@ import { IStarShip } from "../interfaces/starship.interface";
 import StarshipService from "../services/starship.service";
 import StarShipValidator from "../validators/startship.validator";
 
+
+/**
+ * Controller Definitions
+ */
+
 export const click = async (req: Request, res: Response) => {
   try {
     const starShip: IStarShip = req.body;
@@ -26,16 +31,14 @@ export const click = async (req: Request, res: Response) => {
       : ((starShip.clicks = 1), await StarshipService.createStarShip(starShip));
 
     // Return a success response with the updated starship list
-    return res.status(StatusCodes.OK).send(await StarshipService.getAllStarShips());
+    const result = await StarshipService.getAllStarShips();
+    return res.status(StatusCodes.OK).send(result);
   } catch (error) {
     // If an error occurs, return a bad request response with the error message
     return res.status(StatusCodes.BAD_REQUEST).send(error.message);
   }
 }
 
-/**
- * Controller Definitions
- */
 
 export const stats = async (req: Request, res: Response) => {
   try {

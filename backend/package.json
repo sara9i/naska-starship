@@ -4,7 +4,8 @@
   "description": "Starship assignment for Naska AI",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "coverage": "jest --coverage",
     "start": "ts-node-dev --respawn --pretty --transpile-only src/index.ts",
     "clean-start": "rm -rf node_modules && npm i && ts-node-dev --respawn --pretty --transpile-only src/index.ts",
     "build": "mkdir -p lib/src && cp -r ./src lib/src/ && tsc",
