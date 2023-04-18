@@ -1,13 +1,12 @@
 import { Request, Response } from "express";
 import { StatusCodes } from 'http-status-codes';
-import SwapiService from "../services/swapi.service";
+import { searchStarships } from "../services/swapi.service";
 
 
 export const starshipsWithWings = async (req: Request, res: Response) => {
   try {
     // filter out to get only the starships containing `wing` in their name
-    const swapiServiceObj = new SwapiService("wing");
-    const wingStarShips = await swapiServiceObj.starships();
+    const wingStarShips = await searchStarships("wing");
     // Return a success response with the starship with wings list
     return res.status(StatusCodes.OK).send(wingStarShips);
     

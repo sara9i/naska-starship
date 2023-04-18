@@ -1,30 +1,15 @@
 import axios from "axios";
 
-class SwapiService {
-  private search: string | undefined;
-  private hostname = "swapi.dev";
-  private baseUrl = "https://" + this.hostname;
+const SWAPI_BASE_URL = "https://swapi.dev/api";
 
-  constructor(search?: string) {
-    this.search = search;
+export const searchStarships = async (
+  search: string = ""
+): Promise<any> => {
+  const url = search ? `${SWAPI_BASE_URL}/starships/?search=${search}` : `${SWAPI_BASE_URL}/starships/?format=json`;
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error) {
+    throw new Error(`Unable to get starships: ${error.message}`);
   }
-
-  starships = async (): Promise<any> => {
-    const path = this.buildPath("/api/starships/?format=json");
-    try {
-      const response = await axios.get(this.baseUrl + path);
-      return response.data;
-    } catch (error) {
-      throw new Error(`Unable to get starships: ${error.message}`);
-    }
-  };
-
-  private buildPath(path: string): string {
-    if (this.search) {
-      path += "&search=" + this.search;
-    }
-    return path;
-  }
-}
-
-export default SwapiService;
+};
