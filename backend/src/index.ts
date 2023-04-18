@@ -13,19 +13,6 @@ import helmet from "helmet";
 import Database from "./configs/db.config";
 import EnvVars from "./configs/env.config";
 
-
-/**
- * App Variables
- */
-
-if (!process.env.PORT) {
-  console.error("PORT NOT DEFINED");
-  process.exit(1);
-}
-
- 
- const PORT: number = parseInt(process.env.PORT as string, 10) || 8000;
-
  
  const app = express();
 
@@ -72,5 +59,5 @@ Database.connect();
  */
 
 app.listen(EnvVars.port, () => {
-  console.log(`Application listening at http://localhost:${EnvVars.port}`);
+  console.log(`Application listening at http://localhost:${EnvVars.port || 8000}`);
 });

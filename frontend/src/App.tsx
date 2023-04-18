@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { getStarshipData } from "./api/starship.api";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
 import ThreeViewer from './components/Viewer';
+import { getStarshipData } from "./services/starship.api";
 import { Starship } from './types';
 
 function App() {

@@ -29,7 +29,7 @@ function ThreeViewer({ starships, handleUpdate }: ThreeViewerProps) {
         intersects[0].object.userData.starship
       ) {
         const starship = intersects[0].object.userData.starship;
-        updateDb(starship.name);
+        updateClickCount(starship.name);
       }
     }
   };
@@ -63,7 +63,7 @@ function ThreeViewer({ starships, handleUpdate }: ThreeViewerProps) {
     return cube;
   };
 
-  const updateDb = (name: string) => {
+  const updateClickCount = (name: string) => {
     const url = `${process.env.REACT_APP_API_URL}/click/`;
     fetch(url, {
       method: "POST",

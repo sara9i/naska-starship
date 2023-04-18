@@ -7,7 +7,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import { useEffect, useState } from "react";
-import { getStarshipStats } from "../../api/starship.api";
+import { getStarshipStats } from "../../services/starship.api";
 
 const drawerWidth = 240;
 
