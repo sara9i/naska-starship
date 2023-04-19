@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { RefObject, useEffect, useState } from 'react';
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
 import ThreeViewer from './components/Viewer';
@@ -7,6 +7,7 @@ import { Starship } from './types';
 
 function App() {
   const [starships, setStarships] = useState<Starship[]>([]);
+  const containerRef: RefObject<HTMLDivElement> = React.createRef();
 
 
   useEffect(() => {
@@ -25,7 +26,7 @@ function App() {
     <div className="app">
       <div className="content">
         <Header />
-        <ThreeViewer starships={starships} handleUpdate={handleUpdate} />
+        <ThreeViewer starships={starships} handleUpdate={handleUpdate} containerRef={containerRef} />
         <SideBar starShipData={starships} />
       </div>
     </div>

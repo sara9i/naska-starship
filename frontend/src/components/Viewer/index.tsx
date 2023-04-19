@@ -1,15 +1,16 @@
-import { useEffect, useRef, useState } from "react";
+import { RefObject, useEffect, useState } from "react";
 import * as THREE from "three";
 import { Starship } from '../../types';
 
 
 interface ThreeViewerProps {
   starships: Starship[];
+  containerRef: RefObject<HTMLDivElement>,
   handleUpdate: any;
 }
 
-function ThreeViewer({ starships, handleUpdate }: ThreeViewerProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
+function ThreeViewer({ starships, handleUpdate, containerRef }: ThreeViewerProps) {
+  // const containerRef = useRef<HTMLDivElement>(null);
   const [camera, setCamera] = useState<THREE.PerspectiveCamera | null>(null);
   const [scene, setScene] = useState<THREE.Scene | null>(null);
 
