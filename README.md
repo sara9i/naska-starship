@@ -1,6 +1,43 @@
 # naska-starship
 
 This is an assignment project for Naska.ai.
+# TASK
+Coding requirements:
+
+
+* The visualiser has to be built using the https://swapi.dev/ API, React.js, Three.js, Node.js and Mongo, you are free to use starter kits or additional libraries you find helpful.
+
+
+Interface requirements:
+
+
+The user interface should be made up of 3 sections: the header, the 3D viewer and sidebar.
+
+
+* The header is made up of static content: a logo and a title.
+
+
+* The 3D viewer displays randomly placed and randomly coloured 3D cubes for each starship
+
+
+* The sidebar displays a list of starships and the number of times the corresponding geometry was clicked on in the 3D viewer
+
+
+Application Requirements:
+
+
+* You should only consider starships containing `wing` in their name (Y-wing, X-wing, A-wing, B-wing, T-70 X-wing fighter and V-wing at the time of writing). The application should query the SWAPI - The Star Wars API ( https://swapi.dev/ ) (https://swapi.dev/) for all starships and filter for the ones containing `wing` in their name.
+
+
+* Hovering on a 3D cube in the 3D viewer should highlight the corresponding name in the sidebar list
+
+
+* Clicking on a 3D cube in the 3D viewer should increment the corresponding value in the sidebar list
+
+
+* The values displayed in the sidebar should be persisted in a mongo database and used as initial values when refreshing or relaunching the application
+
+
 
 ## Getting Started
 
